@@ -34,7 +34,6 @@ const argvConfig = () => config => {
 }
 
 const AnalyzConfig = () => config => {
-  console.log('process.env.ANALYZE', process.env.ANALYZE)
   if (process.env.ANALYZE) {
     config.plugins.push(new BundleAnalyzerPlugin())
   }

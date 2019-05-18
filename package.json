@@ -46,6 +46,7 @@
     "analyze": "cross-env ANALYZE=true npm run build",
     "deploy": "npm run build && node ./deploy",
     "test": "react-app-rewired test",
+    "ci": "cross-env CI=true react-app-rewired test --coverage",
     "eject": "react-scripts eject",
     "codecov": "codecov"
   },
