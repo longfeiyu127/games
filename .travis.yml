@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - '10'
+install:
+  - npm i -g codecov
+  - yarn
+script:
+  - yarn run ci
+  - yarn run build
+after_script:
+  - yarn run codecov
