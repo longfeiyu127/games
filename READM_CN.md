@@ -13,35 +13,35 @@
   <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled%20with-prettier-ff69b4.svg" alt="prettier"></a>
 </p>
 
-English | [简体中文](./READM_CN.md)
+[English](./README.md) | 简体中文
 
-👉 [Start the game](https://www.longfeiyu.com.cn/games/)
+👉 [开始游戏](https://www.longfeiyu.com.cn/games/)
 
-## Usage
+## 使用
 
-1. Clone project code.
+1. 下载项目代码。
 
 ```bash
 git clone https://github.com/longfeiyu127/games.git games-web
 cd games-web
 ```
 
-2. Installation dependence.
+2. 进入目录安装依赖，国内用户推荐使用 [cnpm](https://cnpmjs.org) 进行加速。
 
 ```bash
 yarn install
 ```
 
-Or
+或者
 
 ```bash
 npm install
 ```
 
-3. Start local server.
+3. 启动本地服务器。
 
 ```bash
 npm run start
 ```
 
-4. After the startup is complete, open a browser and visit [http://localhost:3000](http://localhost:3000), If you need to change the startup port, you can configure it in the `.env` file.
+4. 启动完成后打开浏览器访问 [http://localhost:3000](http://localhost:3000)，如果需要更改启动端口，可在 `.env` 文件中配置。
