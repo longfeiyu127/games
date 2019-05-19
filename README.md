@@ -8,9 +8,6 @@
   <a href="https://github.com/longfeiyu127/games/blob/master/LICENSE"><img src="https://img.shields.io/github/license/longfeiyu127/games.svg" alt="License"></a>
   <a href="https://gitter.im/Long-Games/community"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
   <br>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%20%3E%3D%2010.0-brightgreen.svg" alt="node"></a>
-  <a href="https://github.com/facebook/jest"><img src="https://img.shields.io/badge/tested%20with-jest-red.svg" alt="jest"></a>
-  <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled%20with-prettier-ff69b4.svg" alt="prettier"></a>
 </p>
 
 English | [简体中文](./READM_CN.md)
@@ -19,14 +16,14 @@ English | [简体中文](./READM_CN.md)
 
 ## Usage
 
-1. Clone project code.
+1. 📥 Clone project code.
 
 ```bash
 git clone https://github.com/longfeiyu127/games.git games-web
 cd games-web
 ```
 
-2. Installation dependence.
+2. 🏴 󠁶󠁥󠁷󠁿Installation dependence.
 
 ```bash
 yarn install
@@ -38,10 +35,10 @@ Or
 npm install
 ```
 
-3. Start local server.
+3. 🎬 Start local server.
 
 ```bash
 npm run start
 ```
 
-4. After the startup is complete, open a browser and visit [http://localhost:3000](http://localhost:3000), If you need to change the startup port, you can configure it in the `.env` file.
+4. 👀 After the startup is complete, open a browser and visit [http://localhost:3000](http://localhost:3000), If you need to change the startup port, you can configure it in the `.env` file.

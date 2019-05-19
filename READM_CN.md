@@ -8,9 +8,6 @@
   <a href="https://github.com/longfeiyu127/games/blob/master/LICENSE"><img src="https://img.shields.io/github/license/longfeiyu127/games.svg" alt="License"></a>
   <a href="https://gitter.im/Long-Games/community"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
   <br>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%20%3E%3D%2010.0-brightgreen.svg" alt="node"></a>
-  <a href="https://github.com/facebook/jest"><img src="https://img.shields.io/badge/tested%20with-jest-red.svg" alt="jest"></a>
-  <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled%20with-prettier-ff69b4.svg" alt="prettier"></a>
 </p>
 
 [English](./README.md) | 简体中文
@@ -19,14 +16,14 @@
 
 ## 使用
 
-1. 下载项目代码。
+1. 📥 下载项目代码。
 
 ```bash
 git clone https://github.com/longfeiyu127/games.git games-web
 cd games-web
 ```
 
-2. 进入目录安装依赖，国内用户推荐使用 [cnpm](https://cnpmjs.org) 进行加速。
+2. 🏴󠁶󠁥󠁷󠁿 进入目录安装依赖，国内用户推荐使用 [cnpm](https://cnpmjs.org) 进行加速。
 
 ```bash
 yarn install
@@ -38,10 +35,10 @@ yarn install
 npm install
 ```
 
-3. 启动本地服务器。
+3. 🎬 启动本地服务器。
 
 ```bash
 npm run start
 ```
 
-4. 启动完成后打开浏览器访问 [http://localhost:3000](http://localhost:3000)，如果需要更改启动端口，可在 `.env` 文件中配置。
+4. 👀 启动完成后打开浏览器访问 [http://localhost:3000](http://localhost:3000)，如果需要更改启动端口，可在 `.env` 文件中配置。
