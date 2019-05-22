@@ -17,6 +17,7 @@
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "trailing-comma": false,
+    "prefer-const": false,
     "no-useless-escape": false
   },
   "rulesDirectory": []

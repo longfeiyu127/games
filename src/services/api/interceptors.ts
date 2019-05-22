@@ -32,7 +32,7 @@ function format(str: string, obj: any) {
 }
 
 export const request = [
-  (config: any): Object => {
+  (config: any): object => {
     let { url, data, method = 'GET' } = config
     if (urlPlaceholder.test(url)) {
       url = format(url, data)
@@ -60,6 +60,7 @@ export const request = [
 ]
 
 export const response = [
+  // tslint:disable-next-line:no-shadowed-variable
   (response: any) => {
     const res = JSON.parse(response.data)
     if (res.resCode !== 0 && !response.config.headers.hideMsg) {

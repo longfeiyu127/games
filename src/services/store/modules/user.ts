@@ -11,6 +11,6 @@ export default {
     }
   },
   effects: (dispatch: any) => ({
-    async getTest() {}
+    // async getTest() {}
   })
 }
