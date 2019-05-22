@@ -1,22 +1,20 @@
-import * as React from 'react';
-import './App.css';
+import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
+import router from '@/routes/index.tsx'
+import GenerateRoute from '@/layouts/generateRoute.tsx'
+import { Provider } from 'react-redux'
+import store from '@/services/store/index.ts'
 
-import logo from './logo.svg';
+console.dir(<GenerateRoute config={router} />)
 
-class App extends React.Component {
+export default class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Provider store={store}>
+        <Router>
+          <GenerateRoute config={router} />
+        </Router>
+      </Provider>
+    )
   }
 }
-
-export default App;

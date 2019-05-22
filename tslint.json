@@ -9,6 +9,7 @@
     "semicolon": [true, "never"],
     // 这个规则使每个接口以 I 开头，这点我不喜欢
     "interface-name": [true, "never-prefix"],
+    // 'import/no-unresolved': [2, { ignore: ['^@/', '^umi/'] }],
     // 这个规则强制对象中的 key 按照字母顺序排列
     "object-literal-sort-keys": false,
     "ordered-imports": false,

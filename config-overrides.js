@@ -1,10 +1,5 @@
-const {
-  override,
-  fixBabelImports,
-  addLessLoader,
-  addWebpackAlias
-} = require('customize-cra')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { override, fixBabelImports, addLessLoader, addWebpackAlias } = require('customize-cra')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
 const CompressionPlugin = require('compression-webpack-plugin')
 const webpack = require('webpack')
@@ -41,6 +36,15 @@ const AnalyzConfig = () => config => {
 }
 
 module.exports = override(
+  fixBabelImports('import', {
+    libraryName: 'antd-mobile',
+    libraryDirectory: 'es',
+    style: true
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: {}
+  }),
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src')
   }),
