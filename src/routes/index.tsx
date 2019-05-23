@@ -15,7 +15,7 @@ const Layout = Loadable({
 })
 
 const routeConfig = [
-  { path: '/', exact: true, strict: true, component: page('index.tsx') }
+  { path: '/', exact: true, strict: true, component: page('home/index.tsx') }
   // {
   //   path: '/404',
   //   component: page('notMatch/index.tsx')

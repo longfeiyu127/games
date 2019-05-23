@@ -1,6 +1,27 @@
+/**
+ * {
+    key: 'zh',
+    value: '中国',
+    label: '中国',
+    language: undefined,
+  },
+  {
+    key: 'en',
+    value: 'English',
+    label: 'English',
+    language: enUS,
+  }
+ */
+
 export default {
   state: {
-    token: ''
+    token: '',
+    locale: {
+      key: 'zh',
+      value: '中国',
+      label: '中国',
+      language: undefined
+    }
   },
   reducers: {
     setTest(state: any, data: string) {
