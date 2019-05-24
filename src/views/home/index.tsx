@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react'
 import { connect } from 'react-redux'
-import PropTypes, { string } from 'prop-types'
 import { Translation } from 'react-i18next'
 import { TabBar } from 'antd-mobile'
+import HomeLayout from '@/layouts/HomeLayout.tsx'
 import Icon from '@/components/icon/index.tsx'
-const HomeGames = React.lazy(() => import('./components/Games.tsx'))
-const HomeRanks = React.lazy(() => import('./components/Ranks.tsx'))
-const HomeDeveloper = React.lazy(() => import('./components/Developer.tsx'))
+const HomeGames = React.lazy(() => import('./components/Games/index.tsx'))
+const HomeRanks = React.lazy(() => import('./components/Ranks/index.tsx'))
+const HomeDeveloper = React.lazy(() => import('./components/Developer/Developer.tsx'))
 
 export interface Iprops {
   selectedTab: string
@@ -61,7 +61,7 @@ class Home extends React.Component<Iprops> {
     // console.log(routes)
     const { hiddenTab } = this.props
     return (
-      <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+      <HomeLayout>
         <Translation>
           {t => (
             <TabBar
@@ -76,7 +76,7 @@ class Home extends React.Component<Iprops> {
             </TabBar>
           )}
         </Translation>
-      </div>
+      </HomeLayout>
     )
   }
 }
