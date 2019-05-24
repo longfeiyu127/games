@@ -1,97 +1,93 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { connect } from 'react-redux'
 import PropTypes, { string } from 'prop-types'
-import Translation from '@/components/common/Translation.tsx'
+import { Translation } from 'react-i18next'
 import { TabBar } from 'antd-mobile'
 import Icon from '@/components/icon/index.tsx'
-import HomeGames from './components/Games.tsx'
-import HomeRanks from './components/Ranks.tsx'
-import HomeDeveloper from './components/Developer.tsx'
+const HomeGames = React.lazy(() => import('./components/Games.tsx'))
+const HomeRanks = React.lazy(() => import('./components/Ranks.tsx'))
+const HomeDeveloper = React.lazy(() => import('./components/Developer.tsx'))
 
-export interface Istatus {
+export interface Iprops {
   selectedTab: string
-  hidden: boolean
+  hiddenTab: boolean
+  setSelectedTab: Function
 }
 const tabConf = [
   {
-    title: '游戏库',
+    title: 'home/games',
     icon: 'games',
     key: 'games',
     components: HomeGames
   },
   {
-    title: '排行榜',
+    title: 'home/ranks',
     icon: 'ranks',
     key: 'ranks',
     components: HomeRanks
   },
   {
-    title: '开发者',
-    icon: 'games',
+    title: 'home/developer',
+    icon: 'developer',
     key: 'developer',
     components: HomeDeveloper
   }
 ]
 
-class Home extends React.Component {
-  public static propTypes = {
-    // eslint-disable-next-line
-    history: PropTypes.object.isRequired
-  }
-  public state: Istatus = {
-    selectedTab: 'games',
-    hidden: false
-  }
-  constructor(props: any) {
-    super(props)
-  }
-  public render() {
-    console.log(this.props)
-    // console.log(this.props.history);
-    // console.log(routes)
-    // tslint:disable-next-line
-    // const { history } = this.props
-    // tslint:disable-next-line
-    const { hidden, selectedTab } = this.state
-    const TabBarItem = tabConf.map(item => {
+class Home extends React.Component<Iprops> {
+  public translation(t: any) {
+    const { selectedTab, setSelectedTab } = this.props
+    return tabConf.map(item => {
       return (
         <TabBar.Item
-          title={item.title}
+          title={t(item.title)}
           key={item.key}
           icon={<Icon type={item.icon} />}
           selectedIcon={<Icon type={item.icon} className="icon-selected" />}
           selected={selectedTab === item.key}
-          onPress={() => {
-            this.setState({ selectedTab: item.key })
-          }}
+          onPress={() => setSelectedTab(item.key)}
         >
-          {<item.components />}
+          {
+            <Suspense fallback={null}>
+              <item.components />
+            </Suspense>
+          }
         </TabBar.Item>
       )
     })
+  }
+
+  public render() {
+    // console.log(routes)
+    const { hiddenTab } = this.props
     return (
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
-        <TabBar
-          // unselectedTintColor="#949494"
-          tintColor="#108ee9"
-          barTintColor="white"
-          tabBarPosition="bottom"
-          hidden={hidden}
-          prerenderingSiblingsNumber={0}
-        >
-          {TabBarItem}
-        </TabBar>
+        <Translation>
+          {t => (
+            <TabBar
+              // unselectedTintColor="#949494"
+              tintColor="#108ee9"
+              barTintColor="white"
+              tabBarPosition="bottom"
+              hidden={hiddenTab}
+              prerenderingSiblingsNumber={0}
+            >
+              {this.translation(t)}
+            </TabBar>
+          )}
+        </Translation>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state: any) => ({
-  locale: state.user.locale
+  selectedTab: state.home.selectedTab,
+  hiddenTab: state.home.hiddenTab
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // onClick: dispatch.Tictactoe.setChess
+  setSelectedTab: dispatch.home.setSelectedTab
 })
 
 export default connect(

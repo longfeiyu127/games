@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import { defaultLanguage } from '@/config/base.ts'
 
 // import Backend from 'i18next-xhr-backend'
 // import LanguageDetector from 'i18next-browser-languagedetector'
@@ -22,8 +23,6 @@ const resources = {
   }
 }
 
-console.log(resources)
-
 i18n
   // load translation using xhr -> see /public/locales
   // learn more: https://github.com/i18next/i18next-xhr-backend
@@ -36,8 +35,8 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    fallbackLng: 'zh',
-    lng: 'zh',
+    fallbackLng: defaultLanguage,
+    lng: defaultLanguage,
     debug: true,
     resources,
     interpolation: {

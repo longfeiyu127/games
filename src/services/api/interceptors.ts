@@ -2,7 +2,7 @@ import { Toast } from 'antd-mobile'
 import { stringify } from 'qs'
 import UserModule from '@/services/store/modules/user.ts'
 
-export const apiPrefix = '/'
+import { apiPrefix } from '@/config/base.ts'
 
 const errorCodeMessage: any = {
   400: '发出的请求有错误，服务器没有进行新建或修改数据的操作',
