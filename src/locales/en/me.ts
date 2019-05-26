@@ -1,0 +1,7 @@
+export default {
+  'me/myGames': 'My Games',
+  'me/myAchievements': 'My Achievements',
+  'me/language': 'Language',
+  'me/developer': 'Developer',
+  'me/feedback': 'Leedback'
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Loadable from 'react-loadable'
-const Loading = () => <div>Loading...</div>
+import Loading from '@/components/Loading/Loading.tsx'
+// const Loading = () => <div>Loading...</div>
 const page = (name: string) =>
   Loadable({
     loader: () => import(`../views/${name}`),

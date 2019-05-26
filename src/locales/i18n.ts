@@ -1,6 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { defaultLanguage } from '@/config/base.ts'
+import { defaultLanguage } from '@/config/locale.ts'
 
 // import Backend from 'i18next-xhr-backend'
 // import LanguageDetector from 'i18next-browser-languagedetector'

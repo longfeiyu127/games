@@ -1,0 +1,76 @@
+@import '../../../../theme/theme.less';
+
+.HomeMe {
+  .banner-box {
+    .banner {
+      height: 150px;
+      position: relative;
+      background-color: @brand-primary;
+      margin-bottom: 40px;
+
+      .dice-box {
+        box-sizing: border-box;
+        padding-top: 30px;
+        height: 200px;
+        width: 150px;
+        position: absolute;
+        right: 50px;
+        top: 0;
+      }
+
+      .header {
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 4px;
+        background-color: #fff;
+        left: 16px;
+        bottom: -40px;
+
+        .center {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          box-sizing: border-box;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .info-box {
+    .main {
+      padding: 0 20px 20px;
+      text-align: right;
+
+      .name {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      .title,
+      .motto {
+        font-size: 16px;
+        line-height: 25px;
+      }
+
+      .motto {
+        color: #999;
+      }
+    }
+  }
+
+  .list-box {
+    padding-top: 10px;
+    background: #F4F9FA;
+  }
+}

@@ -64,6 +64,7 @@
   ],
   "devDependencies": {
     "@types/classnames": "^2.2.7",
+    "@types/qs": "^6.5.3",
     "classnames": "^2.2.6",
     "codecov": "^3.5.0",
     "cross-env": "^5.2.0",

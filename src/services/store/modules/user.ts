@@ -1,19 +1,4 @@
-import { defaultLanguage } from '@/config/base.ts'
-
-export const localeConf: Record<string, object> = {
-  zh: {
-    key: 'zh',
-    value: '中国',
-    label: '中国'
-    // language: undefined,
-  },
-  en: {
-    key: 'en',
-    value: 'English',
-    label: 'English'
-    // language: enUS,
-  }
-}
+import { defaultLanguage, localeConf } from '@/config/locale.ts'
 
 const locale = localeConf[defaultLanguage]
 

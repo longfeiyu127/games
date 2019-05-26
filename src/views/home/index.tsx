@@ -6,7 +6,7 @@ import HomeLayout from '@/layouts/HomeLayout.tsx'
 import Icon from '@/components/icon/index.tsx'
 const HomeGames = React.lazy(() => import('./components/Games/index.tsx'))
 const HomeRanks = React.lazy(() => import('./components/Ranks/index.tsx'))
-const HomeDeveloper = React.lazy(() => import('./components/Developer/Developer.tsx'))
+const HomeMe = React.lazy(() => import('./components/Me/Me.tsx'))
 
 export interface Iprops {
   selectedTab: string
@@ -27,10 +27,10 @@ const tabConf = [
     components: HomeRanks
   },
   {
-    title: 'home/developer',
-    icon: 'developer',
-    key: 'developer',
-    components: HomeDeveloper
+    title: 'home/me',
+    icon: 'me',
+    key: 'me',
+    components: HomeMe
   }
 ]
 

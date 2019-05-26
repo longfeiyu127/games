@@ -1,12 +1,10 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import Developing from '@/components/common/Developing/Developing.tsx'
 
 const HomeRanks = () => {
-  const { t, i18n } = useTranslation()
   return (
-    <div>
-      <h2>{t('home/ranks')}</h2>
-      <button onClick={() => i18n.changeLanguage('en')}>切换语言</button>
+    <div style={{ height: '100%' }}>
+      <Developing />
     </div>
   )
 }
