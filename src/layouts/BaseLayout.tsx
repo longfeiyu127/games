@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import NoAdmission from '@/views/401.tsx'
+import Exception from '@/views/exception/index.tsx'
 
 interface Iprops {
   children: React.ReactElement<any> | null
@@ -28,7 +28,7 @@ const BaseLayout = (props: Iprops) => {
       en: 'No Access'
     })
   }
-  return <React.Fragment>{hasPermission ? children : <NoAdmission />}</React.Fragment>
+  return <React.Fragment>{hasPermission ? children : <Exception type="401" />}</React.Fragment>
 }
 
 const mapStateToProps = (state: any) => ({

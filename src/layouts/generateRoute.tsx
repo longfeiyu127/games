@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import BaseLayout from './BaseLayout'
 // import { IroutesConfig } from '@/routes/index.tsx'
-import NotMatch from '@/views/404.tsx'
+import Exception from '@/views/exception/index.tsx'
 
 export const RouteWithSubRoutes = (routes: any) => {
   const { path, exact = false, strict = false, childRoutes } = routes
@@ -30,7 +30,7 @@ const GenerateRoute = (props: any) => {
             return <RouteWithSubRoutes key={i} {...route} />
           })
           .reverse()}
-        {<Route component={NotMatch} />}
+        {<Route component={() => <Exception type="404" />} />}
       </Switch>
     </React.Fragment>
   )

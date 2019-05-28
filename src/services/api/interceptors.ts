@@ -1,5 +1,6 @@
 import { Toast } from 'antd-mobile'
 import { stringify } from 'qs'
+import loadingStatus from './loadingStatus.ts'
 import UserModule from '@/services/store/modules/user.ts'
 
 import { apiPrefix } from '@/config/base.ts'
@@ -42,6 +43,7 @@ export const request = [
       ...config.headers
     }
     const dataName = method && methods.includes(method.toLowerCase()) ? 'data' : 'params'
+    loadingStatus.count++
     return {
       url: `${apiPrefix}${url}`,
       [dataName]: data,
@@ -54,6 +56,7 @@ export const request = [
     }
   },
   (error: any) => {
+    loadingStatus.count--
     console.log(error)
     return Promise.reject(error)
   }
@@ -62,6 +65,7 @@ export const request = [
 export const response = [
   // tslint:disable-next-line:no-shadowed-variable
   (response: any) => {
+    loadingStatus.count--
     const res = JSON.parse(response.data)
     if (res.resCode !== 0 && !response.config.headers.hideMsg) {
       Toast.fail(`error with resCode: ${res.resMsg}`)
@@ -77,6 +81,7 @@ export const response = [
     }
   },
   (err: any) => {
+    loadingStatus.count--
     console.log('err', err)
     if (err && err.response) {
       err.message = errorCodeMessage[err.response.status] || '请求错误'

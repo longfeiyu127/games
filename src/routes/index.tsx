@@ -52,7 +52,7 @@ const routeConfig: IroutesConfig[] = [
       zh: '404',
       en: '404'
     },
-    component: page('404.tsx')
+    component: page('exception/index.tsx')
   }
 ]
 export default routeConfig

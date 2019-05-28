@@ -1,4 +1,4 @@
-import request from './request.tsx'
+import request from './request.ts'
 
 export interface ApiConfig {
   url: string

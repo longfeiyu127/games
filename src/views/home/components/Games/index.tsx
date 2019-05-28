@@ -1,19 +1,10 @@
 import React from 'react'
 import Translation from '@/components/common/Translation.tsx'
 import Dice from '@/components/Dice/Dice.tsx'
-import Loading, { PageLoading } from '@/components/Loading/Loading.tsx'
-import LoadingPlugin from '@/components/Loading/plugin.tsx'
+// import Loading, { PageLoading } from '@/components/Loading/Loading.tsx'
+import userApi from '@/services/api/modules/user.ts'
 const showLoading = () => {
-  console.log('显示')
-  LoadingPlugin.show()
-  setTimeout(() => {
-    console.log('隐藏')
-    LoadingPlugin.hide()
-    setTimeout(() => {
-      console.log('删除')
-      LoadingPlugin.remove()
-    }, 5000)
-  }, 5000)
+  userApi.login()
 }
 const HomeGames = () => (
   <h2>
