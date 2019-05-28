@@ -1,5 +1,6 @@
 /* tslint:disable */
 import React from 'react'
+import classnames from 'classnames'
 import './Loading.less'
 const color = '#666'
 export const loadingIcon = () => {
@@ -43,10 +44,16 @@ export const loadingIcon = () => {
 
 const Loading = () => <div className="c-loading">{loadingIcon()}</div>
 
-export const PageLoading = () => {
+export interface IPageLoading {
+  // prefix?: string
+  className?: string
+}
+
+export const PageLoading = (props: IPageLoading) => {
+  const { className } = props
   return (
-    <div className="c-page-loading">
-      <div className="c-loading-mack" />
+    <div className={classnames(className, 'c-page-loading')}>
+      <div className="c-loading-mask" />
       {Loading()}
     </div>
   )

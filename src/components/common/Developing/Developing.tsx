@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Icon from '@/components/icon/index.tsx'
+import Icon from '@/components/Icon/index.tsx'
 import './Developing.less'
 
 interface Iprops {

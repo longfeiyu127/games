@@ -1,7 +1,19 @@
 import React from 'react'
 import Loadable from 'react-loadable'
 import Loading from '@/components/Loading/Loading.tsx'
-// const Loading = () => <div>Loading...</div>
+
+export interface Iroute {
+  path: string
+  component?: React.ComponentType
+  strict?: boolean
+  exact?: boolean
+}
+// console.log(React)
+
+export interface IroutesConfig extends Iroute {
+  childRoutes?: Iroute[]
+}
+
 const page = (name: string) =>
   Loadable({
     loader: () => import(`../views/${name}`),
@@ -10,16 +22,11 @@ const page = (name: string) =>
     // timeout: 10000
   })
 
-const Layout = Loadable({
-  loader: () => import(`../layouts/testLayout`),
-  loading: Loading
-})
-
-const routeConfig = [
-  { path: '/', exact: true, strict: true, component: page('home/index.tsx') }
-  // {
-  //   path: '/404',
-  //   component: page('notMatch/index.tsx')
-  // }
+const routeConfig: IroutesConfig[] = [
+  { path: '/', exact: true, strict: true, component: page('home/index.tsx') },
+  {
+    path: '/404',
+    component: page('404.tsx')
+  }
 ]
 export default routeConfig

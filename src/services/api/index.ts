@@ -1,10 +1,10 @@
 import request from './request.tsx'
 
 export interface ApiConfig {
-  options: {
-    method?: string
-  }
   url: string
+  method?: string
+  baseUrl?: string
+  headers?: any
 }
 
 export const crearApi = (config: ApiConfig) => async (data: any) => request({ ...config, data })

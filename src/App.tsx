@@ -5,8 +5,6 @@ import GenerateRoute from '@/layouts/generateRoute.tsx'
 import { Provider } from 'react-redux'
 import store from '@/services/store/index.ts'
 
-console.dir(<GenerateRoute config={router} />)
-
 export default class App extends React.Component {
   public render() {
     return (

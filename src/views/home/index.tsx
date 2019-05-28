@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Translation } from 'react-i18next'
 import { TabBar } from 'antd-mobile'
 import HomeLayout from '@/layouts/HomeLayout.tsx'
-import Icon from '@/components/icon/index.tsx'
+import Icon from '@/components/Icon/index.tsx'
 const HomeGames = React.lazy(() => import('./components/Games/index.tsx'))
 const HomeRanks = React.lazy(() => import('./components/Ranks/index.tsx'))
 const HomeMe = React.lazy(() => import('./components/Me/Me.tsx'))

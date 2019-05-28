@@ -1,15 +1,16 @@
 import React from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+// import { IroutesConfig } from '@/routes/index.tsx'
 import NotMatch from '@/views/404.tsx'
 
-export const RouteWithSubRoutes = (route: any) => {
-  const { path, exact = false, strict = false, childRoutes } = route
+export const RouteWithSubRoutes = (routes: any) => {
+  const { path, exact = false, strict = false, childRoutes } = routes
   return (
     <Route
       path={path}
       exact={exact}
       strict={strict}
-      render={(props: any) => <route.component {...props} routes={childRoutes} />}
+      render={(props: any) => <routes.component {...props} routes={childRoutes} />}
     />
   )
 }
