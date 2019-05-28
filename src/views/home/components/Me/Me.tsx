@@ -8,7 +8,7 @@ import Dice from '@/components/Dice/Dice.tsx'
 import './Me.less'
 
 export interface Iprops {
-  setLocale: Function
+  changeLanguage: Function
 }
 
 const operation = Modal.operation
@@ -17,7 +17,7 @@ const headerImg =
   'https://user-gold-cdn.xitu.io/2019/5/19/16ad00cf10c86e43?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1'
 
 const HomeMe = (props: Iprops) => {
-  const { setLocale } = props
+  const { changeLanguage } = props
   const { t, i18n } = useTranslation()
   const languageArr = Object.keys(localeConf).map(key => {
     const { label, key: localeKey } = localeConf[key]
@@ -25,8 +25,7 @@ const HomeMe = (props: Iprops) => {
       text: label,
       onPress: () => {
         i18n.changeLanguage(localeKey)
-        setLocale(localeKey)
-        console.log(`${label}被点击了 ${localeKey}`)
+        changeLanguage(localeKey)
       }
     }
   })
@@ -71,7 +70,7 @@ const HomeMe = (props: Iprops) => {
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-  setLocale: dispatch.user.setLocale
+  changeLanguage: dispatch.base.changeLanguage
 })
 
 export default connect(

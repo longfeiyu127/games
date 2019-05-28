@@ -5,6 +5,8 @@ import Loading from '@/components/Loading/Loading.tsx'
 export interface Iroute {
   path: string
   component?: React.ComponentType
+  permission?: string[]
+  title?: any
   strict?: boolean
   exact?: boolean
 }
@@ -23,9 +25,33 @@ const page = (name: string) =>
   })
 
 const routeConfig: IroutesConfig[] = [
-  { path: '/', exact: true, strict: true, component: page('home/index.tsx') },
+  {
+    path: '/',
+    title: {
+      zh: '游戏圈',
+      en: 'Games'
+    },
+    exact: true,
+    strict: true,
+    component: page('home/index.tsx')
+  },
+  {
+    path: '/testPage/permission',
+    permission: ['user'],
+    title: {
+      zh: '测试权限页面',
+      en: 'Test permission page'
+    },
+    exact: true,
+    strict: true,
+    component: page('testPage/permission.tsx')
+  },
   {
     path: '/404',
+    title: {
+      zh: '404',
+      en: '404'
+    },
     component: page('404.tsx')
   }
 ]

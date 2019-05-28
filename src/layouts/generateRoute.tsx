@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import BaseLayout from './BaseLayout'
 // import { IroutesConfig } from '@/routes/index.tsx'
 import NotMatch from '@/views/404.tsx'
 
@@ -10,7 +11,13 @@ export const RouteWithSubRoutes = (routes: any) => {
       path={path}
       exact={exact}
       strict={strict}
-      render={(props: any) => <routes.component {...props} routes={childRoutes} />}
+      render={(props: any) => {
+        return (
+          <BaseLayout {...props} routes={routes}>
+            <routes.component {...props} routes={childRoutes} />
+          </BaseLayout>
+        )
+      }}
     />
   )
 }
