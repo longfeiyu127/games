@@ -10,7 +10,6 @@ export interface Iroute {
   strict?: boolean
   exact?: boolean
 }
-// console.log(React)
 
 export interface IroutesConfig extends Iroute {
   childRoutes?: Iroute[]
@@ -34,6 +33,9 @@ const routeConfig: IroutesConfig[] = [
     exact: true,
     strict: true,
     component: page('home/index.tsx')
+    // childRoutes: [
+    //   // childRoutes..
+    // ]
   },
   {
     path: '/testPage/permission',

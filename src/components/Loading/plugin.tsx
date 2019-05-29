@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 // import closest from '../_util/closest';
 import { PageLoading } from './Loading.tsx'
 
-export interface ILoadingPlugin {
+export interface IloadingPlugin {
   show: () => void
   hide: () => void
   remove: () => void
@@ -28,7 +28,7 @@ const unmountLoadingDOM = () => {
   loadingNode = undefined
 }
 
-const loadingPlugin: ILoadingPlugin = {
+const loadingPlugin: IloadingPlugin = {
   isVisible: false,
   show() {
     if (!loadingNode) {

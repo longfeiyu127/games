@@ -13,7 +13,11 @@ const userConfig = {
   },
   updateUser: {
     method: 'POST',
-    url: '/game/user/update'
+    url: '/game/user/update',
+    baseUrl: 'www.domain.com/',
+    headers: {
+      contentType: 'json'
+    }
   }
 }
 

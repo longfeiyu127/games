@@ -2,6 +2,7 @@ import { Toast } from 'antd-mobile'
 import { stringify } from 'qs'
 import loadingStatus from './loadingStatus.ts'
 import UserModule from '@/services/store/modules/user.ts'
+import { isString, isObject, isArray } from '@/utils/getType.ts'
 
 import { apiPrefix } from '@/config/base.ts'
 
@@ -24,7 +25,7 @@ const errorCodeMessage: any = {
 const methods = ['post', 'put', 'patch']
 
 const urlPlaceholder = /\$\{\w+\}/
-function format(str: string, obj: any) {
+function repalceParams(str: string, obj: any) {
   console.log(obj)
   Object.keys(obj).map((key: string) => {
     str = str.replace(new RegExp(`\\$\\{${key}\\}`, 'g'), obj[key])
@@ -34,9 +35,14 @@ function format(str: string, obj: any) {
 
 export const request = [
   (config: any): object => {
+    if (isString(config)) {
+      config = {
+        url: config
+      }
+    }
     let { url, data, method = 'GET' } = config
     if (urlPlaceholder.test(url)) {
-      url = format(url, data)
+      url = repalceParams(url, data)
     }
     const headers = {
       'X-Token': `Bearer ${UserModule.token || null}`,
@@ -47,10 +53,18 @@ export const request = [
     return {
       url: `${apiPrefix}${url}`,
       [dataName]: data,
-      paramsSerializer(params: object) {
+      paramsSerializer(params: any) {
         return stringify(params)
       },
-      transformRequest: [(data: any) => JSON.stringify(data)],
+      transformRequest: [
+        // tslint:disable-next-line:no-shadowed-variable
+        (data: any) => {
+          if (headers['Content-Type'] === 'application/json' && (isObject(data) || isArray(data))) {
+            return JSON.stringify(data)
+          }
+          return data
+        }
+      ],
       method,
       headers
     }

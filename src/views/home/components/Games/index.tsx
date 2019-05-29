@@ -3,8 +3,8 @@ import Translation from '@/components/common/Translation.tsx'
 import Dice from '@/components/Dice/Dice.tsx'
 // import Loading, { PageLoading } from '@/components/Loading/Loading.tsx'
 import userApi from '@/services/api/modules/user.ts'
-const showLoading = () => {
-  userApi.login()
+const showLoading = async () => {
+  await userApi.login()
 }
 const HomeGames = () => (
   <h2>

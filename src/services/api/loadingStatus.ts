@@ -16,7 +16,6 @@ Object.defineProperty(loadingStatus, 'count', {
     }
   },
   get() {
-    console.log(this)
     return this._count
   }
 })
