@@ -1,6 +1,6 @@
-import home from './en/home'
-import me from './en/me'
-import components from './en/components'
+import home from './en/home.json'
+import me from './en/me.json'
+import components from './en/components.json'
 export default {
   ...home,
   ...me,

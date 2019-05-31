@@ -48,6 +48,7 @@
     "build:test": "cross-env TEST=true npm run build",
     "analyze": "cross-env ANALYZE=true npm run build",
     "deploy": "npm run build && node ./scripts/deploy",
+    "translate": "node ./scripts/translate",
     "test": "react-app-rewired test",
     "ci": "cross-env CI=true react-app-rewired test --coverage",
     "eject": "react-scripts eject",
@@ -70,7 +71,9 @@
     "cross-env": "^5.2.0",
     "http-proxy-middleware": "^0.19.1",
     "inquirer": "^6.3.1",
+    "json-format": "^1.0.1",
     "less-loader": "^4.1.0",
+    "md5": "^2.2.1",
     "webpack-bundle-analyzer": "^3.3.2"
   }
 }
