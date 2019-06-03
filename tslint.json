@@ -12,6 +12,7 @@
     // 'import/no-unresolved': [2, { ignore: ['^@/', '^umi/'] }],
     // 这个规则强制对象中的 key 按照字母顺序排列
     "object-literal-sort-keys": false,
+    "arrow-parens": false,
     "ordered-imports": false,
     "no-console": false,
     "jsx-no-lambda": false,

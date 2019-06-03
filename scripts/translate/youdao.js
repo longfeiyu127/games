@@ -2,7 +2,7 @@
  *  Youdao Translate, My private account is for testing purposes only.
  *  Please go to the official account to apply for an account. Thank you for your cooperation.
  *  APP ID：58d4b52e02621966
- *  Secret key：0APQXcjlfIYTyidxA5p9GPSyq0vVrlcJ
+ *  Secret key：Contact the developer if necessary
  * Supported language:
  * 中文	zh-CHS
  * 英文	en
@@ -25,14 +25,15 @@ const fs = require('fs')
 const path = require('path')
 const jsonFormat = require('json-format')
 const utils = require('./utils')
+
+let appKey = '58d4b52e02621966'
+let appID = ''
+
 const youdao = async ({ q, from, to }) => {
-  const appKey = '58d4b52e02621966'
-  const appse = '0APQXcjlfIYTyidxA5p9GPSyq0vVrlcJ'
-  console.log(utils)
   const salt = utils.guid()
   const input = utils.getInput(q)
   const curtime = Math.round(new Date().getTime() / 1000)
-  const sign = sha256(appKey + input + salt + curtime + appse)
+  const sign = sha256(appKey + input + salt + curtime + appID)
   const query = qs.stringify({
     q,
     from,
@@ -44,7 +45,6 @@ const youdao = async ({ q, from, to }) => {
     signType: 'v3'
   })
   const res = await axios.get(`http://openapi.youdao.com/api?${query}`)
-  // console.log(res.data)
   const { data } = res
   if (data.query && data.translation[0]) {
     return data.translation[0]
@@ -53,22 +53,33 @@ const youdao = async ({ q, from, to }) => {
   }
 }
 
-const translateFile = async ({ key, content }) => {
+const translateFile = async ({ key, content, to = 'en', appse }) => {
+  appID = appse
   return new Promise(async (resolve, reject) => {
     const contentKeys = Object.keys(content)
     const from = 'zh-CHS'
-    const to = 'ko'
-    const tasks = contentKeys.map(async item => {
-      console.log(`Start translating: ${from} -> ${to}:  ${item}`)
-      const q = content[item]
-      const res = await youdao({ q, from, to })
-      return { [item]: res }
+    const statements = contentKeys
+      .map(item => {
+        const q = content[item]
+        return q
+      })
+      .join('/')
+    const res = await youdao({ q: statements, from, to })
+    const resultArr = res.split('/')
+    const resultObj = contentKeys.map((item, index) => {
+      return { [item]: resultArr[index] }
     })
-    const res = await Promise.all(tasks)
-    const result = Object.assign(...res)
-    console.log(key, result)
-    const outputPath = path.resolve(__dirname, `../testTranslate/${to}`)
-    console.log('outputPath', outputPath)
+    const result = Object.assign(...resultObj)
+    // const tasks = contentKeys.map(async item => {
+    //   console.log(`Start translating: ${from} -> ${to}:  ${item}`)
+    //   const q = content[item]
+    //   const res = await youdao({ q, from, to })
+    //   return { [item]: res }
+    // })
+    // const res = await Promise.all(tasks)
+    // const result = Object.assign(...res)
+    // console.log(result, key)
+    const outputPath = path.resolve(__dirname, `./result/${to}`)
     utils.mkdirs(outputPath, async err => {
       if (err) {
         reject(err)

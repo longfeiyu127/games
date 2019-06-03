@@ -11,7 +11,7 @@ const HomeMe = React.lazy(() => import('./components/Me/Me.tsx'))
 export interface Iprops {
   selectedTab: string
   hiddenTab: boolean
-  setSelectedTab: Function
+  setSelectedTab: (index: number) => void
 }
 const tabConf = [
   {
@@ -37,7 +37,7 @@ const tabConf = [
 class Home extends React.Component<Iprops> {
   public translation(t: any) {
     const { selectedTab, setSelectedTab } = this.props
-    return tabConf.map(item => {
+    return tabConf.map((item: any) => {
       return (
         <TabBar.Item
           title={t(item.title)}
