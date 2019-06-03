@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import router from '@/routes/index.tsx'
 import GenerateRoute from '@/layouts/generateRoute.tsx'
 import { Provider } from 'react-redux'

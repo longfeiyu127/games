@@ -8,7 +8,8 @@ import Dice from '@/components/Dice/Dice.tsx'
 import './Me.less'
 
 export interface Iprops {
-  changeLanguage: Function
+  changeLanguage: (key: number) => void
+  history: any
 }
 
 const operation = Modal.operation
@@ -17,7 +18,7 @@ const headerImg =
   'https://user-gold-cdn.xitu.io/2019/5/19/16ad00cf10c86e43?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1'
 
 const HomeMe = (props: Iprops) => {
-  const { changeLanguage } = props
+  const { changeLanguage, history } = props
   const { t, i18n } = useTranslation()
   const languageArr = Object.keys(localeConf).map(key => {
     const { label, key: localeKey } = localeConf[key]
@@ -60,7 +61,9 @@ const HomeMe = (props: Iprops) => {
             <List.Item arrow="horizontal" onClick={() => operation(languageArr)}>
               {t('me/language')}
             </List.Item>
-            <List.Item arrow="horizontal">{t('me/developer')}</List.Item>
+            <List.Item arrow="horizontal" onClick={() => history.push('/developers')}>
+              {t('me/developer')}
+            </List.Item>
             <List.Item arrow="horizontal">{t('me/feedback')}</List.Item>
           </List>
         </div>

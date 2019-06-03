@@ -15,6 +15,7 @@ export const RouteWithSubRoutes = (routes: any) => {
         return (
           <BaseLayout {...props} routes={routes}>
             <routes.component {...props} routes={childRoutes} />
+            {childRoutes && <GenerateRoute config={childRoutes} />}
           </BaseLayout>
         )
       }}

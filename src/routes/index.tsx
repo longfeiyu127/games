@@ -9,9 +9,6 @@ export interface Iroute {
   title?: any
   strict?: boolean
   exact?: boolean
-}
-
-export interface IroutesConfig extends Iroute {
   childRoutes?: Iroute[]
 }
 
@@ -23,19 +20,27 @@ const page = (name: string) =>
     // timeout: 10000
   })
 
-const routeConfig: IroutesConfig[] = [
+const routeConfig: Iroute[] = [
   {
     path: '/',
     title: {
       zh: '游戏圈',
       en: 'Games'
     },
-    exact: true,
-    strict: true,
-    component: page('home/index.tsx')
-    // childRoutes: [
-    //   // childRoutes..
-    // ]
+    // exact: true,
+    // strict: false,
+    component: page('home/index.tsx'),
+    childRoutes: [
+      {
+        path: '/developers',
+        title: {
+          zh: '开发者',
+          en: 'developers'
+        },
+        exact: true,
+        component: page('developers/developers.tsx')
+      }
+    ]
   },
   {
     path: '/testPage/permission',

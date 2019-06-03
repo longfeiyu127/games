@@ -12,6 +12,7 @@ export interface Iprops {
   selectedTab: string
   hiddenTab: boolean
   setSelectedTab: (index: number) => void
+  history: any
 }
 const tabConf = [
   {
@@ -36,7 +37,7 @@ const tabConf = [
 
 class Home extends React.Component<Iprops> {
   public translation(t: any) {
-    const { selectedTab, setSelectedTab } = this.props
+    const { selectedTab, setSelectedTab, history } = this.props
     return tabConf.map((item: any) => {
       return (
         <TabBar.Item
@@ -49,7 +50,7 @@ class Home extends React.Component<Iprops> {
         >
           {
             <Suspense fallback={null}>
-              <item.components />
+              <item.components history={history} />
             </Suspense>
           }
         </TabBar.Item>
