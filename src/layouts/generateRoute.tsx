@@ -31,7 +31,7 @@ const GenerateRoute = (props: any) => {
             return <RouteWithSubRoutes key={i} {...route} />
           })
           .reverse()}
-        {<Route component={() => <Exception type="404" />} />}
+        {/* {<Route component={() => <Exception type="404" />} />} */}
       </Switch>
     </React.Fragment>
   )

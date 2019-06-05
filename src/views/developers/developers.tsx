@@ -1,11 +1,18 @@
 import React from 'react'
+import firmament from './components/firmament'
 import './developers.less'
 
 export default () => {
-  console.log('jinru')
   return (
     <div className="v-developers">
-      <div className="banner-box">头像</div>
+      {firmament()}
+      <div className="header-box">
+        <div className="header">
+          <div className="header-center">
+            <div className="item">chengyuan</div>
+          </div>
+        </div>
+      </div>
       <div className="Members-box">成员介绍</div>
       <div className="project-box">项目介绍</div>
     </div>

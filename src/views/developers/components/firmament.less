@@ -1,0 +1,142 @@
+@width: 500;
+@hight: 650;
+
+@count: 12;
+
+@random: `Math.random() `;
+
+@0px: 0px;
+
+.getShadow(@top, @left) {
+  box-shadow+: @left @top #fff, @left @top 8px 1px #fff;
+}
+
+.loopShadow(@i) when (@i < @count) {
+  @top: floor(@random* @hight) + @0px;
+  @left: floor(@random* @width) + @0px;
+  .getShadow(@top, @left);
+  .loopShadow(@i+1);
+}
+
+.c-firmament {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #081d3e, #214f9f);
+  overflow: hidden;
+  .dawn {
+    position: absolute;
+    height: 1500px;
+    width: 1500px;
+    left: 50%;
+    margin-left: -750px;
+    top: 96vh;
+    border-top-left-radius: 1500px 1500px;
+    border-top-right-radius: 1500px 1500px;
+    background: #2d3db2;
+    box-shadow: 200px -20px 50px #58d1ff, -200px -20px 50px #783be7, 0px -2px 5px #ffffff,
+      inset 0px 0px 15px rgba(125, 135, 255, 1);
+  }
+  .star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    // margin: 10px 20px;
+    background: #fff;
+    background: radial-gradient(circle at top left, transparent 3px, #fff 0) top left,
+      radial-gradient(circle at top right, transparent 3px, #fff 0) top right,
+      radial-gradient(circle at bottom right, transparent 3px, #fff 0) bottom right,
+      radial-gradient(circle at bottom left, transparent 3px, #fff 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    animation: flashing linear 7s infinite;
+    // transform: scale(5);
+    .star-shadow {
+      height: 2px;
+      width: 2px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0px -1px 8px 1px #fff;
+    }
+  }
+  .multiple-star {
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    // left: 20%;
+    // top: 20%;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    // box-shadow: 0px -1px 8px 1px #fff;
+    .loopShadow(0);
+    &.before {
+      .loopShadow(0);
+      animation: flashing linear 10s infinite;
+    }
+    &.after {
+      .loopShadow(0);
+      animation: flashing linear 10s 5s infinite;
+    }
+  }
+  .shooting-star {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    top: 100px;
+    left: 400px;
+    position: relative;
+    transform-origin: 100% 0;
+    animation: star-ani 6s infinite ease-out;
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    z-index: 2;
+    &::after {
+      content: '';
+      display: block;
+      top: 0px;
+      left: 4px;
+      border: 0px solid #fff;
+      border-width: 0px 90px 2px 90px;
+      border-color: transparent transparent transparent rgba(255, 255, 255, 0.3);
+      transform: rotate(-45deg) translate3d(1px, 3px, 0);
+      box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.1);
+      transform-origin: 0% 100%;
+    }
+  }
+}
+
+@keyframes flashing {
+  0%,
+  25%,
+  75%,
+  100% {
+    opacity: 1;
+  }
+  30%,
+  70% {
+    opacity: 0;
+  }
+}
+
+@keyframes star-ani {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(0) translate3d(-200px, 200px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(0) translate3d(-300px, 300px, 0);
+  }
+}
