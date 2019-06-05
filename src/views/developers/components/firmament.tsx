@@ -12,5 +12,6 @@ export default () => (
     <div className="multiple-star" />
     <div className="multiple-star after" />
     <div className="shooting-star" />
+    <div className="shooting-star after" />
   </div>
 )
