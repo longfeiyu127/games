@@ -1,0 +1,47 @@
+@iconSize: 25px;
+.c-pentagram-icon {
+  height: @iconSize;
+  width: @iconSize;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -(@iconSize + 4px);
+  animation: inflation 3s linear infinite;
+  svg {
+    height: @iconSize;
+    width: @iconSize;
+  }
+  .shadow-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 1), inset 0px 0px 15px rgba(255, 255, 255, 1),
+      0px 0px 5px 2px #ffffff, 0px 0px 50px 10px #fdfc55, 0px 0px 10px 3px #fdfc55;
+  }
+}
+.c-pentagram {
+  position: absolute;
+  .vacancy {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+    background: linear-gradient(to right, #985455, #f6e09d);
+  }
+  @keyframes inflation {
+    0%,
+    100% {
+      transform: translate(-50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%) scale(1.1);
+    }
+  }
+}

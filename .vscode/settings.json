@@ -11,5 +11,6 @@
   },
   // "beautify.ignore": ["**/*.css", "**/*.less", "**/*.css", "**/*.js", "**/*.ts", "**/*.tsx"],
   // Always use project's provided typescript compiler version
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.eol": "\n"
 }

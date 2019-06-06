@@ -45,8 +45,8 @@ const HomeMe = (props: Iprops) => {
         </div>
         <div className="info-box">
           <div className="main">
-            <h3 className="name">龙王大太子</h3>
-            <p className="title">前端切图仔 @git</p>
+            <h3 className="name">cv切图仔</h3>
+            <p className="title">前端切图仔 @招商金科</p>
             <p className="motto">业精于勤荒于嬉,行成于思毁于随</p>
           </div>
         </div>

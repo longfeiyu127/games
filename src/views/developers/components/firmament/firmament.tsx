@@ -1,7 +1,7 @@
 import React from 'react'
 import './firmament.less'
 
-export default () => (
+const Firmament = () => (
   <div className="c-firmament">
     <div className="dawn" />
     {/* <div className="dawn magenta" /> */}
@@ -15,3 +15,5 @@ export default () => (
     <div className="shooting-star after" />
   </div>
 )
+
+export default Firmament
