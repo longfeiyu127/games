@@ -9,9 +9,7 @@ const HomeGames = () => (
   <h2>
     <Translation>home/games</Translation>
     <div>
-      <div style={{ height: 200, position: 'relative' }}>
-        <Dice />
-      </div>
+      <div style={{ height: 200, position: 'relative' }}>{/* <Dice /> */}</div>
       <div>
         <button onClick={() => showLoading()}>showloading</button>
       </div>

@@ -34,9 +34,7 @@ const HomeMe = (props: Iprops) => {
     <BlankLayout className="HomeMe">
       <div className="banner-box">
         <div className="banner">
-          <div className="dice-box">
-            <Dice />
-          </div>
+          <div className="dice-box">{/* <Dice /> */}</div>
           <header className="header">
             <div className="center">
               <img src={headerImg} alt="header" />

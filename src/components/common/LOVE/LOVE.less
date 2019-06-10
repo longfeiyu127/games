@@ -1,0 +1,186 @@
+@particles: 100;
+@width: 500;
+
+@count: 30;
+
+@random: `Math.random() `;
+
+@box-shadow: 0 0 #fff;
+
+@0px: 0px;
+
+// @randomColor: hsl(@random*360, 100%, 50%);
+@randomColor: #eb3420;
+
+.shadowLX(@t) when (@t<0.3) {
+  @x: floor(@random*100) + @0px;
+  box-shadow+: @x @0px @randomColor;
+}
+.shadowLY(@t) when (@t>0.3) {
+  @y: floor(-@random*200) + @0px;
+  box-shadow+: @0px @y @randomColor;
+}
+
+@countL: 30;
+.loopL(@i) when (@i < @countL) {
+  @t: @random;
+  .shadowLY(@t);
+  .shadowLX(@t);
+  .loopL(@i+1);
+}
+
+.getShadowO(@t) {
+  @x: floor(5 * (16 * pow(sin(@t), 3))) + @0px;
+  @y: floor(-5 * (13 * cos(@t) - (5 * cos(2 * @t)) - (2 * cos(3 * @t)) - cos(4 * @t))) + @0px;
+  // x=16 * (sin(t)) ^ 3;
+  // y=13 * cos(t) - 5 * cos(2 * t) - 2 * cos(3 * t) - cos(4 * t)。
+  box-shadow+: @x @y @randomColor;
+}
+@countO: 40;
+.loopO(@i) when (@i < @countO) {
+  @t: @random * 2 * pi();
+  .getShadowO(@t);
+  .loopO(@i+1);
+}
+
+.getShadowV(@t) {
+  @x: floor((ceil(@random*2 - 1)) * @t*100) + @0px;
+  @y: floor(-@t*150) + @0px;
+  box-shadow+: @x @y @randomColor;
+}
+
+@countV: 30;
+.loopV(@i) when (@i < @countV) {
+  @t: @random;
+  .getShadowV(@t);
+  .loopV(@i+1);
+}
+
+.shadowEY(@t) when (@t<0.3) {
+  @y: floor(-@random*150) + @0px;
+  box-shadow+: @0px @y @randomColor;
+}
+.shadowEX(@t) when (@t>0.3) {
+  @x: floor(@random*80) + @0px;
+  @y: round(-@random*2) * 75 + @0px;
+  box-shadow+: @x @y @randomColor;
+}
+@countE: 45;
+.loopE(@i) when (@i < @countE) {
+  @t: @random;
+  .shadowEY(@t);
+  .shadowEX(@t);
+  .loopE(@i+1);
+}
+
+.loop1(@i) when (@i < @count) {
+  box-shadow+: @box-shadow;
+  .loop1(@i+1);
+}
+
+.c-LOVE {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  .firework {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -150px;
+    height: 300px;
+    .light {
+      border-radius: 50%;
+      .loop1(1);
+      height: 5px;
+      position: absolute;
+      width: 5px;
+      &.l {
+        margin-top: 100px;
+        margin-left: 15%;
+        animation: 1.5s bangL ease-out infinite backwards, 1.5s gravity ease-in infinite backwards;
+      }
+      &.o {
+        margin-left: 35%;
+        animation: 1.5s bangO ease-out infinite backwards, 1.5s gravity ease-in infinite backwards;
+      }
+      &.v {
+        margin-top: 100px;
+        margin-left: 55%;
+        animation: 1.5s bangV ease-out infinite backwards, 1.5s gravity ease-in infinite backwards;
+      }
+      &.e {
+        margin-top: 100px;
+        margin-left: 75%;
+        animation: 1.5s bangE ease-out infinite backwards, 1.5s gravity ease-in infinite backwards;
+      }
+      // &.after {
+      //   // animation-delay: 10s, 10s, 10s;
+      //   animation-duration: 1.25s, 1.25s, 6.25s;
+      // }
+    }
+  }
+}
+
+@keyframes bangL {
+  to {
+    .loopL(1);
+  }
+}
+
+@keyframes bangO {
+  to {
+    .loopO(1);
+  }
+}
+
+@keyframes bangV {
+  to {
+    .loopV(1);
+  }
+}
+@keyframes bangE {
+  to {
+    .loopE(1);
+  }
+}
+
+@keyframes gravity {
+  to {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+}
+
+@keyframes position {
+  0%,
+  19.9% {
+    margin-left: 40%;
+    margin-top: 10%;
+  }
+
+  20%,
+  39.9% {
+    margin-left: 30%;
+    margin-top: 40%;
+  }
+
+  40%,
+  59.9% {
+    margin-left: 70%;
+    margin-top: 20%;
+  }
+
+  60%,
+  79.9% {
+    margin-left: 20%;
+    margin-top: 30%;
+  }
+
+  80%,
+  99.9% {
+    margin-left: 80%;
+    margin-top: 30%;
+  }
+}
