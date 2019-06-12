@@ -77,5 +77,11 @@
     "md5": "^2.2.1",
     "react-test-renderer": "^16.8.6",
     "webpack-bundle-analyzer": "^3.3.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "verbose": true
   }
 }

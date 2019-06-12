@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Firework /> component common/Firework render 1`] = `
+<div
+  className="c-firework"
+>
+  <div
+    className="firework"
+  >
+    <div
+      className="light before"
+    />
+    <div
+      className="light after"
+    />
+  </div>
+</div>
+`;

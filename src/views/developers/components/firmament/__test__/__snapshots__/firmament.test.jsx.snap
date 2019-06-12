@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Firmament /> component developers/Firmament render 1`] = `
+<div
+  className="c-firmament"
+>
+  <div
+    className="dawn"
+  />
+  <div
+    className="star"
+  >
+    <div
+      className="star-shadow"
+    />
+  </div>
+  <div
+    className="multiple-star before"
+  />
+  <div
+    className="multiple-star"
+  />
+  <div
+    className="multiple-star after"
+  />
+  <div
+    className="shooting-star"
+  />
+  <div
+    className="shooting-star after"
+  />
+</div>
+`;

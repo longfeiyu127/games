@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CutImgMan /> component developers/header/CutImgMan render 1`] = `
+<div
+  className="c-cutImgMan"
+>
+  <div
+    className="c-header-img"
+    style={Object {}}
+  >
+    <img
+      alt="header"
+      src="cutImg-man.jpg"
+    />
+  </div>
+  <div
+    className="start-box"
+  >
+    <div
+      className="radiation radiation1"
+    />
+    <div
+      className="radiation radiation2"
+    />
+    <div
+      className="radiation radiation3"
+    />
+    <div
+      className="radiation radiation4"
+    />
+    <div
+      className="radiation radiation5"
+    />
+    <div
+      className="radiation radiation6"
+    />
+    <div
+      className="radiation radiation7"
+    />
+    <div
+      className="radiation radiation8"
+    />
+    <div
+      className="star"
+    >
+      <div
+        className="sunspots sunspots"
+      />
+    </div>
+  </div>
+</div>
+`;
