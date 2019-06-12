@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LOVE /> component common/LOVE render 1`] = `
+<div
+  className="c-LOVE"
+>
+  <div
+    className="firework"
+  >
+    <div
+      className="light l"
+    />
+    <div
+      className="light o"
+    />
+    <div
+      className="light v"
+    />
+    <div
+      className="light e"
+    />
+  </div>
+</div>
+`;

@@ -75,6 +75,7 @@
     "json-format": "^1.0.1",
     "less-loader": "^4.1.0",
     "md5": "^2.2.1",
+    "react-test-renderer": "^16.8.6",
     "webpack-bundle-analyzer": "^3.3.2"
   }
 }
