@@ -9,9 +9,40 @@ const Client = require('ssh2').Client
 
 const conn = new Client()
 
+const update = (stream, serverConf, updateFile) => {
+  stream
+    .on('close', (code, signal) => {
+      spinner.start()
+      if (updateFile) updateFile(serverConf, err => spinner.stop())
+      conn.end()
+    })
+    .on('data', data => {
+      console.log(`STDOUT: ${data}`)
+    })
+    .stderr.on('data', data => {
+      console.log(`STDERR: ${data}`)
+    })
+}
+
+const reloadServer = (serverConf, updateFile) => {
+  conn
+    .on('ready', () => {
+      conn.exec(`rm -rf ${server.staticPath}\ncd ${server.nginxPath}/sbin \n./nginx -s reload`, (err, stream) => {
+        if (err) throw err
+        console.log(chalk.green(`reload nginx success! \n`))
+        update(stream, serverConf, updateFile)
+      })
+    })
+    .connect({
+      ...serverConf
+      // privateKey: require('fs').readFileSync('/home/admin/.ssh/id_dsa')
+    })
+}
+
 module.exports = (serverConf, updateFile) => {
   scpClient.scp(
-    './nginx.conf', {
+    './nginx.conf',
+    {
       ...serverConf,
       path: `${server.nginxPath}/conf/nginx.conf`
     },
@@ -21,29 +52,7 @@ module.exports = (serverConf, updateFile) => {
         throw err
       } else {
         console.log(chalk.green(`\nReplace nginx.conf success! \n`))
-        conn
-          .on('ready', () => {
-            conn.exec(`rm -rf ${server.staticPath}\ncd ${server.nginxPath}/sbin \n./nginx -s reload`, (err, stream) => {
-              if (err) throw err
-              console.log(chalk.green(`reload nginx success! \n`))
-              stream
-                .on('close', (code, signal) => {
-                  spinner.start()
-                  if (updateFile) updateFile(serverConf, (err) => spinner.stop())
-                  conn.end()
-                })
-                .on('data', data => {
-                  console.log(`STDOUT: ${data}`)
-                })
-                .stderr.on('data', data => {
-                  console.log(`STDERR: ${data}`)
-                })
-            })
-          })
-          .connect({
-            ...serverConf
-            // privateKey: require('fs').readFileSync('/home/admin/.ssh/id_dsa')
-          })
+        reloadServer()
       }
     }
   )
