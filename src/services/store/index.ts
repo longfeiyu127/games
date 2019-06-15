@@ -3,13 +3,15 @@ import { reducer as reduxAsyncConnect } from 'redux-connect'
 import user from './modules/user'
 import home from './modules/home'
 import base from './modules/base'
+import games from './modules/games/index'
 
 function createStore() {
-  const store = init({
+  return init({
     models: {
       user,
       home,
-      base
+      base,
+      ...games
     },
     redux: {
       reducers: {
@@ -17,8 +19,6 @@ function createStore() {
       }
     }
   })
-  // console.log(store)
-  return store
 }
 
 const store = createStore()

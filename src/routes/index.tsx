@@ -43,6 +43,16 @@ const routeConfig: Iroute[] = [
     ]
   },
   {
+    path: '/games/minesweeper',
+    title: {
+      zh: '扫雷',
+      en: 'minesweeper'
+    },
+    exact: true,
+    strict: true,
+    component: page('games/minesweeper/minesweeper.tsx')
+  },
+  {
     path: '/testPage/permission',
     permission: ['user'],
     title: {
