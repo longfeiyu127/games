@@ -1,13 +1,29 @@
 .c-Minesweeper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  > .header,
-  > .footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 80px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0px 0px 30px 10px #456580;
+  .Minesweeper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    > .header,
+    > .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+    }
   }
+}
+.gameover {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: inset 0px 0px 10px 3px #456580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -52,7 +52,7 @@ module.exports = (serverConf, updateFile) => {
         throw err
       } else {
         console.log(chalk.green(`\nReplace nginx.conf success! \n`))
-        reloadServer()
+        reloadServer(serverConf, updateFile)
       }
     }
   )

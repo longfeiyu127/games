@@ -19,16 +19,21 @@ export const shutDownType = cellType[9]
 export const minesType = cellType[12]
 export const explosionType = cellType[11]
 
-export enum cellState {
+export enum CellState {
   'open',
   'shutDown'
+}
+export enum GameState {
+  'start',
+  'victory',
+  'failure'
 }
 
 export interface Icell {
   type: cellType
   cols: number
   rows: number
-  state: cellState
+  state: CellState
   mark: boolean
 }
 
@@ -40,7 +45,7 @@ const creatCell = (type: cellType, cols: number, rows: number): Icell => ({
   type,
   cols,
   rows,
-  state: cellState.shutDown,
+  state: CellState.shutDown,
   mark: false
 })
 
@@ -116,23 +121,18 @@ const resetBoardState = (): any[] => {
   return BoardState
 }
 
-export interface Istate {
-  BoardState: any[]
-  gameOver: boolean
-  MarkedState: boolean
-  minesCount: number
-}
-
-const onEmpty = (BoardState: any[], cell: Icell) => {
+const onEmpty = (BoardState: any[], cell: Icell, openCount: number) => {
   const { cols, rows } = cell
   const aroundArr = getAroundArr(BoardState, cols, rows)
+  let constRes: number = openCount
   aroundArr.map((item: Icell) => {
-    if (item.state === cellState.shutDown) {
+    if (item.state === CellState.shutDown) {
       // tslint:disable-next-line:no-shadowed-variable
-      const { cols, rows } = item
-      trample(BoardState, cols, rows)
+      // const { cols, rows } = item
+      openCount = trample(BoardState, item, openCount).openCount
     }
   })
+  return { openCount }
 }
 
 const onMines = (BoardState: any[], cell: Icell) => {
@@ -143,7 +143,7 @@ const onMines = (BoardState: any[], cell: Icell) => {
   for (let line of BoardState) {
     for (let item of line) {
       if (item.type === minesType) {
-        item.state = cellState.open
+        item.state = CellState.open
         minesCount++
       }
       if (minesCount === defaultCount) {
@@ -153,47 +153,65 @@ const onMines = (BoardState: any[], cell: Icell) => {
   }
 }
 
-const trample = (BoardState: any[], cols: number, rows: number) => {
-  const cell = BoardState[cols][rows]
-  cell.state = cellState.open
-  let gameOver = false
+const trample = (BoardState: any[], cell: Icell, openCount: number) => {
+  // console.log(minesweeper)
+  // const cell = BoardState[cols][rows]
+  cell.state = CellState.open
+  openCount++
+  // console.log(openCount)
+  let gamedState = GameState.start
+  if (openCount === defaultCount * (defaultCount - 1)) {
+    gamedState = GameState.victory
+  }
   switch (cell.type) {
+    // @ts-ignore
     case emptyType:
-      onEmpty(BoardState, cell)
+      openCount = onEmpty(BoardState, cell, openCount).openCount
       break
+    // @ts-ignore
     case minesType:
-      gameOver = true
+      gamedState = GameState.failure
       onMines(BoardState, cell)
       break
     default:
       break
   }
   return {
-    gameOver,
-    BoardState: [...BoardState]
+    gamedState,
+    BoardState: [...BoardState],
+    openCount
   }
+}
+
+export interface Istate {
+  BoardState: any[]
+  MarkedState: boolean
+  gamedState: GameState
+  openCount: number
+  minesCount: number
 }
 
 const resetState = (): Istate => {
   return {
     BoardState: resetBoardState(),
-    gameOver: false,
     MarkedState: false,
+    gamedState: GameState.start,
+    openCount: 0,
     minesCount: defaultCount
   }
 }
 
-export default {
+const minesweeper = {
   state: resetState(),
   reducers: {
     trampleCell(state: Istate, { cols, rows }: { cols: number; rows: number }) {
-      if (state.gameOver) {
+      if (state.gamedState !== GameState.start) {
         return state
       }
       const cell = state.BoardState[cols][rows]
       if (state.MarkedState) {
-        if (!cell.mark) {
-          cell.mark = true
+        if (cell.state === CellState.shutDown) {
+          cell.mark = !cell.mark
         }
         return {
           ...state,
@@ -204,11 +222,13 @@ export default {
           return state
         }
       }
-      const { BoardState, gameOver } = trample(state.BoardState, cols, rows)
+      const { BoardState, gamedState, openCount } = trample(state.BoardState, cell, state.openCount)
+      // console.log(openCount)
       return {
         ...state,
         BoardState,
-        gameOver
+        gamedState,
+        openCount
       }
     },
     resetBoard() {
@@ -219,6 +239,25 @@ export default {
       return {
         ...state
       }
+    },
+    addOpenCount(state: Istate) {
+      state.openCount++
+      console.log(state.openCount)
+      if (state.openCount === defaultCount * (defaultCount - 1)) {
+        state.gamedState = GameState.victory
+        console.log(GameState.victory)
+      }
+      return {
+        ...state
+      }
+    },
+    setGameState(state: Istate, gamedState: GameState) {
+      return {
+        ...state,
+        gamedState
+      }
     }
   }
 }
+
+export default minesweeper

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './board.less'
 import Cell from '../cell/cell'
-import { shutDownType, cellState } from '@/services/store/modules/games/minesweeper.ts'
+import { shutDownType, CellState } from '@/services/store/modules/games/minesweeper.ts'
 
 interface Iprops {
   BoardState: any[]
@@ -16,7 +16,7 @@ function Board({ BoardState, trampleCell }: Iprops) {
         return (
           <div className="line" key={i}>
             {line.map((item: any, j: number) => {
-              if (item && item.state === cellState.shutDown) {
+              if (item && item.state === CellState.shutDown) {
                 return <Cell type={shutDownType} mark={item.mark} onClick={trampleCell} cols={i} rows={j} key={j} />
               }
               return (
