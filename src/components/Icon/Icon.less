@@ -1,29 +1,36 @@
 @import '../../theme/theme.less';
 @import '../../theme/icon/icon.less';
 
+.size(@size) {
+  width: @size;
+  height: @size;
+  &::before {
+    font-size: @size;
+  }
+}
+
 .icon {
   fill: currentColor;
   background-size: cover;
   width: @icon-size-md;
   height: @icon-size-md;
-
-  &-xxs::before {
-    font-size: @icon-size-xxs;
+  &-xxs {
+    .size(@icon-size-xxs);
   }
 
-  &-xs::before {
-    font-size: @icon-size-xs;
+  &-xs {
+    .size(@icon-size-xs);
   }
 
-  &-sm::before {
-    font-size: @icon-size-sm;
+  &-sm {
+    .size(@icon-size-sm);
   }
 
-  &-md::before {
-    font-size: @icon-size-md;
+  &-md {
+    .size(@icon-size-md);
   }
 
-  &-lg::before {
-    font-size: @icon-size-lg;
+  &-lg {
+    .size(@icon-size-lg);
   }
 }

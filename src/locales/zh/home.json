@@ -1,5 +1,9 @@
 {
   "home/games": "游戏库",
   "home/ranks": "排行榜",
-  "home/me": "我的"
+  "home/me": "我的",
+  "home/games/search": "搜索引擎坏了",
+  "home/games/hot": "热门",
+  "home/games/new": "新游",
+  "home/games/classify": "分类"
 }

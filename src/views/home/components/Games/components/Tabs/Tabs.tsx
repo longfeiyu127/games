@@ -1,4 +1,5 @@
 import React from 'react'
+import { Translation } from 'react-i18next'
 import './Tabs.less'
 import { Tabs } from 'antd-mobile'
 
@@ -6,7 +7,11 @@ export interface Iprops {
   children?: React.ReactElement<any>
 }
 
-const tabs = [{ title: '全部', sub: '1' }, { title: '热门', sub: '2' }, { title: '分类', sub: '3' }]
+const tabs = [
+  { title: <Translation>{t => t('home/games/hot')}</Translation>, sub: '1' },
+  { title: <Translation>{t => t('home/games/new')}</Translation>, sub: '2' },
+  { title: <Translation>{t => t('home/games/classify')}</Translation>, sub: '3' }
+]
 
 const Tab = ({ children }: Iprops) => {
   return (
