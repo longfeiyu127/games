@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import React from 'react'
-import '@/theme/icon/icon.less'
+import './Icon.less'
 
 export interface IconProps {
   type: string

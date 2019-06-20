@@ -1,0 +1,29 @@
+@import '../../theme/theme.less';
+@import '../../theme/icon/icon.less';
+
+.icon {
+  fill: currentColor;
+  background-size: cover;
+  width: @icon-size-md;
+  height: @icon-size-md;
+
+  &-xxs::before {
+    font-size: @icon-size-xxs;
+  }
+
+  &-xs::before {
+    font-size: @icon-size-xs;
+  }
+
+  &-sm::before {
+    font-size: @icon-size-sm;
+  }
+
+  &-md::before {
+    font-size: @icon-size-md;
+  }
+
+  &-lg::before {
+    font-size: @icon-size-lg;
+  }
+}

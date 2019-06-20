@@ -1,20 +1,24 @@
 import React from 'react'
-import Translation from '@/components/common/Translation.tsx'
-import Dice from '@/components/Dice/Dice.tsx'
+import Search from './components/Search/Search'
+import Tabs from './components/Tabs/Tabs.tsx'
 import userApi from '@/services/api/modules/user.ts'
 const showLoading = async () => {
   await userApi.login()
 }
-const HomeGames = () => (
-  <h2>
-    <Translation>home/games</Translation>
-    <div>
-      <div style={{ height: 200, position: 'relative' }}>{/* <Dice /> */}</div>
+
+class HomeGames extends React.Component {
+  public state = {
+    data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    imgHeight: 176
+  }
+  public render() {
+    return (
       <div>
-        <button onClick={() => showLoading()}>showloading</button>
+        <Search />
+        <Tabs />
       </div>
-    </div>
-  </h2>
-)
+    )
+  }
+}
 
 export default HomeGames

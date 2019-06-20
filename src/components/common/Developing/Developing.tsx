@@ -11,7 +11,7 @@ function Developing({ children }: Iprops) {
   const { t } = useTranslation()
   return (
     <div className="c-Developing">
-      <Icon type="development" className="icon" />
+      <Icon type="development" className="icon" size="lg" />
       <h5 className="descreption">{t('components/common/Developing')}</h5>
     </div>
   )

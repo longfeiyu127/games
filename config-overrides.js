@@ -43,7 +43,12 @@ module.exports = override(
   }),
   addLessLoader({
     javascriptEnabled: true,
-    modifyVars: {}
+    modifyVars: {
+      'search-bar-fill': '#fff',
+      'search-bar-height': '50px',
+      'search-bar-input-height': '35px',
+      'search-color-icon': '#9a9a9a'
+    }
   }),
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src')
