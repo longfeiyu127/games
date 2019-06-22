@@ -6,19 +6,15 @@ const showLoading = async () => {
   await userApi.login()
 }
 
-class HomeGames extends React.Component {
-  public state = {
-    data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-    imgHeight: 176
-  }
-  public render() {
-    return (
-      <div>
-        <Search />
-        <Tabs />
-      </div>
-    )
-  }
+interface Iprops {
+  history: any
 }
+
+const HomeGames = ({ history }: Iprops) => (
+  <div>
+    <Search />
+    <Tabs history={history} />
+  </div>
+)
 
 export default HomeGames

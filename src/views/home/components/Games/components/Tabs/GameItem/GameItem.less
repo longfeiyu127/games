@@ -1,0 +1,48 @@
+@import '../../../../../../../theme/theme.less';
+.c-TabItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15px 15px 15px 0;
+  background: white;
+  margin-left: 15px;
+  border-bottom: 1px solid #e9e9ea;
+  width: calc(100% - 15px);
+  .TabItem-banner {
+    width: 62px;
+    height: 62px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  .TabItem-content {
+    flex: 1;
+    > h5 {
+      margin: 0;
+      line-height: 25px;
+      font-size: 16px;
+    }
+    > p {
+      margin: 0;
+      line-height: 19px;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+  }
+  .TabItem-button {
+    margin-left: 5px;
+    width: 54px;
+    height: 26px;
+    border: 1px solid @brand-primary;
+    line-height: 24px;
+    text-align: center;
+    color: @brand-primary;
+    border-radius: 2px;
+  }
+}

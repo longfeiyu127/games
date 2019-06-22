@@ -14,9 +14,6 @@ export interface Iprops {
 
 const operation = Modal.operation
 
-const headerImg =
-  'https://user-gold-cdn.xitu.io/2019/5/19/16ad00cf10c86e43?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1'
-
 const HomeMe = (props: Iprops) => {
   const { changeLanguage, history } = props
   const { t, i18n } = useTranslation()
@@ -37,7 +34,7 @@ const HomeMe = (props: Iprops) => {
           <div className="dice-box">{/* <Dice /> */}</div>
           <header className="header">
             <div className="center">
-              <img src={headerImg} alt="header" />
+              <img src={require('@/assets/images/developers/cutImg-man.jpg')} alt="header" />
             </div>
           </header>
         </div>
