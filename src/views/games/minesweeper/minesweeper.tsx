@@ -14,7 +14,7 @@ interface Iprops {
   switchMarkedState: () => {}
 }
 
-function Minesweeper({ resetBoard, gamedState, MarkedState, switchMarkedState }: Iprops) {
+export function Minesweeper({ resetBoard, gamedState, MarkedState, switchMarkedState }: Iprops) {
   return (
     <GameLayout>
       <div className="c-Minesweeper">

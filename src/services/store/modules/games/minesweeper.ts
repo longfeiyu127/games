@@ -213,6 +213,7 @@ const minesweeper = {
         if (cell.state === CellState.shutDown) {
           cell.mark = !cell.mark
         }
+        console.log(state.BoardState)
         return {
           ...state,
           BoardState: [...state.BoardState]
@@ -223,6 +224,7 @@ const minesweeper = {
         }
       }
       const { BoardState, gamedState, openCount } = trample(state.BoardState, cell, state.openCount)
+      console.log(BoardState)
       // console.log(openCount)
       return {
         ...state,

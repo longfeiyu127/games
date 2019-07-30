@@ -9,7 +9,7 @@ interface Iprops {
   trampleCell: () => {}
 }
 
-function Board({ BoardState, trampleCell }: Iprops) {
+export function Board({ BoardState, trampleCell }: Iprops) {
   return (
     <div className="c-Board">
       {BoardState.map((line: any[], i: number) => {

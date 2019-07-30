@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Board /> component minesweeper/Board render 1`] = `
+<div
+  className="c-Board"
+>
+  <div
+    className="line"
+  >
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬜
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      1️⃣
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬛
+      <div
+        className="mark"
+      >
+        🚩
+      </div>
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      1️⃣
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬜
+      <div
+        className="mark"
+      >
+        🚩
+      </div>
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬜
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬛
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      1️⃣
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      ⬛
+    </div>
+    <div
+      className="c-Cell"
+      onClick={[Function]}
+    >
+      💣
+    </div>
+  </div>
+</div>
+`;
