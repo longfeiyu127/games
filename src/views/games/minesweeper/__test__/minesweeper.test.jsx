@@ -3,7 +3,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import { Minesweeper } from '../minesweeper'
-import { GameState } from '@/services/store/modules/games/minesweeper.ts'
+import { GameState } from '@/services/store/modules/games/minesweeper/index.ts'
 
 Enzyme.configure({ adapter: new Adapter() })
 

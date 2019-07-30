@@ -5,7 +5,7 @@ import GameLayout from '@/layouts/GameLayout/GameLayout.tsx'
 import GameOver from '@/components/GameOver/GameOver.tsx'
 import Board from './components/board/board'
 import Cell from './components/cell/cell'
-import { GameState } from '@/services/store/modules/games/minesweeper.ts'
+import { GameState } from '@/services/store/modules/games/minesweeper/index.ts'
 
 interface Iprops {
   MarkedState: boolean

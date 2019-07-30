@@ -1,6 +1,6 @@
 import React from 'react'
 import Firework from '../common/Firework/Firework'
-import { GameState } from '@/services/store/modules/games/minesweeper.ts'
+import { GameState } from '@/services/store/modules/games/minesweeper/index.ts'
 import './GameOver.less'
 
 export interface Iprops {

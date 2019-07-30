@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './board.less'
 import Cell from '../cell/cell'
-import { shutDownType, CellState } from '@/services/store/modules/games/minesweeper.ts'
+import { shutDownType, CellState } from '@/services/store/modules/games/minesweeper/index.ts'
 
 interface Iprops {
   BoardState: any[]

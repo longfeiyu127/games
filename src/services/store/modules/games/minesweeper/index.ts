@@ -37,7 +37,7 @@ export interface Icell {
   mark: boolean
 }
 
-const defaultCount = 10
+export const defaultCount = 10
 
 const getRandom = () => Math.floor(Math.random() * defaultCount)
 
@@ -115,7 +115,7 @@ const getEmptyArr = (): any[] => {
   return arr
 }
 
-const resetBoardState = (): any[] => {
+export const resetBoardState = (): any[] => {
   let BoardState = getEmptyArr()
   BoardState = setCount(setMines(BoardState))
   return BoardState
@@ -153,12 +153,10 @@ const onMines = (BoardState: any[], cell: Icell) => {
   }
 }
 
-const trample = (BoardState: any[], cell: Icell, openCount: number) => {
-  // console.log(minesweeper)
+export const trample = (BoardState: any[], cell: Icell, openCount: number) => {
   // const cell = BoardState[cols][rows]
   cell.state = CellState.open
   openCount++
-  // console.log(openCount)
   let gamedState = GameState.start
   if (openCount === defaultCount * (defaultCount - 1)) {
     gamedState = GameState.victory
@@ -213,7 +211,6 @@ const minesweeper = {
         if (cell.state === CellState.shutDown) {
           cell.mark = !cell.mark
         }
-        console.log(state.BoardState)
         return {
           ...state,
           BoardState: [...state.BoardState]
@@ -224,8 +221,6 @@ const minesweeper = {
         }
       }
       const { BoardState, gamedState, openCount } = trample(state.BoardState, cell, state.openCount)
-      console.log(BoardState)
-      // console.log(openCount)
       return {
         ...state,
         BoardState,
@@ -244,10 +239,8 @@ const minesweeper = {
     },
     addOpenCount(state: Istate) {
       state.openCount++
-      console.log(state.openCount)
       if (state.openCount === defaultCount * (defaultCount - 1)) {
         state.gamedState = GameState.victory
-        console.log(GameState.victory)
       }
       return {
         ...state

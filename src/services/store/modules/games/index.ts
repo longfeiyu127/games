@@ -1,4 +1,4 @@
-import minesweeper from './minesweeper'
+import minesweeper from './minesweeper/index.ts'
 
 export default {
   minesweeper
