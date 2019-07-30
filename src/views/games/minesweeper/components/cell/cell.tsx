@@ -13,7 +13,7 @@ function Cell({ type, cols, rows, onClick, mark = false }: Iprops) {
   return (
     <div className="c-Cell" onClick={() => onClick({ cols, rows })}>
       {type}
-      {mark ? <div className="mark">🚩</div> : ''}
+      {mark && <div className="mark">🚩</div>}
     </div>
   )
 }

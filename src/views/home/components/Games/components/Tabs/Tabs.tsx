@@ -27,7 +27,12 @@ const games = [
 
 const Tab = ({ children, history }: Iprops) => {
   const AllGames = games.map(item => (
-    <GameItem {...item} icon={require(`@/assets/games/icon/${item.icon}`)} history={history} key={item.key} />
+    <GameItem
+      {...item}
+      icon={require(`../../../../../../assets/games/icon/${item.icon}`)}
+      history={history}
+      key={item.key}
+    />
   ))
   return (
     <div className="c-Tabs">
