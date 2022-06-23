@@ -67,7 +67,7 @@
     "@types/classnames": "^2.2.7",
     "@types/qs": "^6.5.3",
     "classnames": "^2.2.6",
-    "codecov": "^3.5.0",
+    "codecov": "^3.8.3",
     "cross-env": "^5.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
